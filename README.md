@@ -59,10 +59,9 @@ Usage
 | Prop | Type | Default | Description |
 |--- | --- | --- | --- |
 | `clientId` | `string` | _Required_ | Google OAuth 2.0 Client ID. |
-
 | `redirectUri` | `string` | _Required_ | URI to which the user is redirected after signing in with Google. |
 |`maxFileSize` | `number` | `10 * 1024 * 1024` (10 MB) | Maximum allowed file size in bytes. |
-|`allowedFormats` | `string[]` |  | `['*/*']` | Array of allowed file MIME types (e.g., `['image/png', 'application/pdf']`). |
+|`allowedFormats` | `string[]`  | `['*/*']` | Array of allowed file MIME types (e.g., `['image/png', 'application/pdf']`). |
 
 ### CSS Variables
 
@@ -73,12 +72,9 @@ You can easily customize the component’s appearance using the following CSS va
 |`--upload-box-border-color` | `#dcdcdc` | Border color of the drag-and-drop area. |
 | `--upload-box-hover-border-color` | `#4285f4` | Border color when hovering over the drag-and-drop area. |
 | `--btn-bg-color` | `#4285f4` | Background color of buttons. |
-
 | `--btn-hover-bg-color` | `#357ae8` | Background color of buttons when hovered.|
 | `--file-card-bg-color` | `#f9f9f9` | Background color of file cards.|
-
 | `--file-card-border-color` | `#e0e0e0` | Border color of file cards.|
-
 | `--remove-file-color` | `red` | Color of the remove file button.|
 
 ### Example of Overriding CSS Variables:
