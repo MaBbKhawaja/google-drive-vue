@@ -57,7 +57,7 @@ Usage
 ### Prop List
 
 | Prop | Type | Default | Description |
-
+|--- | --- | --- | --- |
 | `clientId` | `string` | _Required_ |
 
 Google OAuth 2.0 Client ID.
