@@ -1,0 +1,215 @@
+<h1>Google Drive Uploader Component</h1>
+
+<p>A highly customizable <strong>Google Drive Uploader</strong> component built with <strong>Vue 3</strong> and <strong>TypeScript</strong>. This component allows users to sign in using <strong>Google OAuth</strong>, select files, and upload them to <strong>Google Drive</strong>. It supports drag-and-drop functionality, file size and format validation, and offers customizable UI styling through <strong>CSS variables</strong>.</p>
+
+<h2>Features</h2>
+
+<ul>
+  <li><strong>Google OAuth</strong>: Allows users to authenticate with Google and upload files to Google Drive.</li>
+  <li><strong>Drag-and-Drop Support</strong>: Users can drag and drop files for uploading.</li>
+  <li><strong>Multiple File Upload</strong>: Upload multiple files at once with progress indicators.</li>
+  <li><strong>File Size Validation</strong>: Control the maximum allowed file size via a prop.</li>
+  <li><strong>File Format Validation</strong>: Limit uploads to specific file formats using MIME types.</li>
+  <li><strong>Customizable UI</strong>: Style the component easily with CSS variables and slots for customization.</li>
+</ul>
+
+<h2>Installation</h2>
+
+<p>Install the <strong>Google Drive Uploader</strong> component via npm:</p>
+
+<pre><code>npm install google-drive-vue
+</code></pre>
+
+<h2>Usage</h2>
+
+<h3>Basic Usage</h3>
+
+<pre><code>&lt;template&gt;
+  &lt;GoogleDrive
+    clientId="your-google-client-id.apps.googleusercontent.com"
+    redirectUri="http://localhost:3000/oauth2callback"
+  /&gt;
+&lt;/template&gt;
+
+&lt;script setup lang="ts"&gt;
+import GoogleDrive from 'google-drive-vue';
+&lt;/script&gt;
+</code></pre>
+
+<h3>Advanced Usage with Props</h3>
+
+<pre><code>&lt;template&gt;
+  &lt;GoogleDrive
+    clientId="your-google-client-id.apps.googleusercontent.com"
+    redirectUri="http://localhost:3000/oauth2callback"
+    maxFileSize="5242880" &lt;!-- 5 MB --&gt;
+    :allowedFormats="['image/png', 'image/jpeg', 'application/pdf']"
+  /&gt;
+&lt;/template&gt;
+
+&lt;script setup lang="ts"&gt;
+import GoogleDrive from 'google-drive-vue';
+&lt;/script&gt;
+</code></pre>
+
+<h3>Prop List</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Prop</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>clientId</code></td>
+      <td><code>string</code></td>
+      <td><em>Required</em></td>
+      <td>Google OAuth 2.0 Client ID.</td>
+    </tr>
+    <tr>
+      <td><code>redirectUri</code></td>
+      <td><code>string</code></td>
+      <td><em>Required</em></td>
+      <td>URI to which the user is redirected after signing in with Google.</td>
+    </tr>
+    <tr>
+      <td><code>maxFileSize</code></td>
+      <td><code>number</code></td>
+      <td><code>10 * 1024 * 1024</code> (10 MB)</td>
+      <td>Maximum allowed file size in bytes.</td>
+    </tr>
+    <tr>
+      <td><code>allowedFormats</code></td>
+      <td><code>string[]</code></td>
+      <td><code>['*/*']</code></td>
+      <td>Array of allowed file MIME types (e.g., <code>['image/png', 'application/pdf']</code>).</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>CSS Variables</h3>
+
+<p>You can easily customize the component’s appearance using the following CSS variables:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Variable</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>--upload-box-border-color</code></td>
+      <td><code>#dcdcdc</code></td>
+      <td>Border color of the drag-and-drop area.</td>
+    </tr>
+    <tr>
+      <td><code>--upload-box-hover-border-color</code></td>
+      <td><code>#4285f4</code></td>
+      <td>Border color when hovering over the drag-and-drop area.</td>
+    </tr>
+    <tr>
+      <td><code>--btn-bg-color</code></td>
+      <td><code>#4285f4</code></td>
+      <td>Background color of buttons.</td>
+    </tr>
+    <tr>
+      <td><code>--btn-hover-bg-color</code></td>
+      <td><code>#357ae8</code></td>
+      <td>Background color of buttons when hovered.</td>
+    </tr>
+    <tr>
+      <td><code>--file-card-bg-color</code></td>
+      <td><code>#f9f9f9</code></td>
+      <td>Background color of file cards.</td>
+    </tr>
+    <tr>
+      <td><code>--file-card-border-color</code></td>
+      <td><code>#e0e0e0</code></td>
+      <td>Border color of file cards.</td>
+    </tr>
+    <tr>
+      <td><code>--remove-file-color</code></td>
+      <td><code>red</code></td>
+      <td>Color of the remove file button.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Example of Overriding CSS Variables:</h3>
+
+<pre><code>.google-drive-uploader {
+  --upload-box-border-color: #333;
+  --upload-box-hover-border-color: #ff4500;
+  --btn-bg-color: #4caf50;
+  --btn-hover-bg-color: #388e3c;
+  --file-card-bg-color: #e0e0e0;
+  --remove-file-color: blue;
+}
+</code></pre>
+
+<h2>Slots</h2>
+
+<p>The component supports the following slots for customization:</p>
+
+<ol>
+  <li><code>sign-in-button</code>: Customize the sign-in button for Google authentication.</li>
+  <li><code>drag-and-drop</code>: Customize the drag-and-drop area for file selection.</li>
+  <li><code>file-card</code>: Customize the appearance of each file card.</li>
+  <li><code>upload-button</code>: Customize the file upload button.</li>
+</ol>
+
+<h3>Example: Customizing the UI with Slots</h3>
+
+<pre><code>&lt;template&gt;
+  &lt;GoogleDrive
+    clientId="your-google-client-id.apps.googleusercontent.com"
+    redirectUri="http://localhost:3000/oauth2callback"
+  &gt;
+    &lt;template #sign-in-button&gt;
+      &lt;button class="custom-sign-in-button"&gt;Sign in to Google&lt;/button&gt;
+    &lt;/template&gt;
+
+    &lt;template #drag-and-drop&gt;
+      &lt;label class="custom-upload-box"&gt;Drop your files here&lt;/label&gt;
+    &lt;/template&gt;
+
+    &lt;template #file-card="{ file, index }"&gt;
+      &lt;div class="custom-file-card"&gt;
+        {{ file.name }} ({{ file.size }} bytes)
+      &lt;/div&gt;
+    &lt;/template&gt;
+
+    &lt;template #upload-button&gt;
+      &lt;button class="custom-upload-btn"&gt;Upload Now&lt;/button&gt;
+    &lt;/template&gt;
+  &lt;/GoogleDrive&gt;
+&lt;/template&gt;
+</code></pre>
+
+<h2>Customizing File Upload Restrictions</h2>
+
+<p><strong>Maximum File Size</strong>: Control the maximum file size allowed for uploads with the <code>maxFileSize</code> prop.</p>
+<p><strong>Allowed Formats</strong>: Restrict the file formats that users can upload with the <code>allowedFormats</code> prop, using MIME types.</p>
+
+<p>Example:</p>
+
+<pre><code>&lt;template&gt;
+  &lt;GoogleDrive
+    clientId="your-google-client-id.apps.googleusercontent.com"
+    redirectUri="http://localhost:3000/oauth2callback"
+    maxFileSize="10485760" &lt;!-- 10 MB --&gt;
+    :allowedFormats="['image/png', 'application/pdf']"
+  /&gt;
+&lt;/template&gt;
+</code></pre>
+
+<h2>License</h2>
+
+<p>MIT License</p>
