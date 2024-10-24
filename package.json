@@ -1,0 +1,51 @@
+{
+  "name": "google-drive-vue",
+  "author": "Mirza Anees Baig Barlas",
+  "type": "module",
+  "version": "0.0.1",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/google-drive-vue.umd.cjs",
+  "module": "./dist/google-drive-vue.js",
+  "exports": {
+    ".": {
+      "import": "./dist/google-drive-vue.js",
+      "require": "./dist/google-drive-vue.umd.cjs"
+    },
+    "./style.css": "./dist/style.css"
+  },
+  "types": "./dist/index.d.ts",
+  "homepage": "https://github.com/MaBbKhawaja/google-drive-vue",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MaBbKhawaja/google-drive-vue"
+  },
+  "keywords": [
+    "Google Drive Uploader",
+    "Vue 3",
+    "file upload",
+    "Google OAuth",
+    "Google Drive integration",
+    "Vue file upload component",
+    "upload to Google Drive",
+    "Google API",
+    "Vue 3 component"
+  ],
+  "scripts": {
+    "dev": "vite --port 3000",
+    "build": "vite build && vue-tsc --emitDeclarationOnly",
+    "types": "vue-tsc ",
+    "preview": "vite preview"
+  },
+  "peerDependencies": {
+    "vue": "^3.2.47"
+  },
+  "devDependencies": {
+    "@types/node": "^20.2.5",
+    "@vitejs/plugin-vue": "^4.2.3",
+    "typescript": "^5.0.2",
+    "vite": "^4.3.9",
+    "vue-tsc": "^2.1.6"
+  }
+}
