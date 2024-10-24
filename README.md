@@ -51,7 +51,8 @@ Usage
     </template>
     
     <script setup lang="ts">
-    import GoogleDrive from 'google-drive-vue';
+        import GoogleDrive from 'google-drive-vue';
+        import "google-drive-vue/style.css";
     </script>
     
 
